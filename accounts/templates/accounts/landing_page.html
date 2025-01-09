@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecom</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header-title">Welcome to Ecom</h1>
+        <div class="auth-buttons">
+            <a href="/login" class="btn login-btn">Login</a>
+            <a href="/register" class="btn register-btn">Register</a>
+        </div>
+    </header>
+    
+    <main>
+        <section id="first_section">
+            <h3 class="headline">Big Hungama Sale is Live! Hurry Up</h3>
+            <img src="{% static 'accounts/images/shoping_cart.png' %}" alt="Ecommerce" class="shop-image">
+        </section>
+
+        <section id="products_section">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="product-card">
+                <img src="{% static 'accounts/images/product1.jpg' %}" alt="Product 1">
+                <div class="product-info">
+                    <h4>Apple 13 Startlight 128gb</h4>
+                    <p>Price: $299</p>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'accounts/images/product1.jpg' %}" alt="Product 1">
+                <div class="product-info">
+                    <h4>Apple 13 Startlight 128gb</h4>
+                    <p>Price: $299</p>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'accounts/images/product1.jpg' %}" alt="Product 1">
+                <div class="product-info">
+                    <h4>Apple 13 Startlight 128gb</h4>
+                    <p>Price: $299</p>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about_section">
+            <h2 class="section-title">About Us</h2>
+            <p>We offer the best deals on the latest tech gadgets. Our goal is to provide high-quality products at affordable prices with top-notch customer service.</p>
+        </section>
+    </main>
+</body>
+</html>

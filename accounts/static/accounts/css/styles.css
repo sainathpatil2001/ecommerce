@@ -1,0 +1,231 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between; /* Aligns title and buttons to the edges */
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+.header-title {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px; /* Adds space between the buttons */
+}
+
+.auth-buttons .btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Login Button */
+.login-btn {
+    background-color: #007BFF;
+    color: white;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+/* Register Button */
+.register-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.register-btn:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack the title and buttons vertically on smaller screens */
+        text-align: center;
+    }
+
+    .auth-buttons {
+        margin-top: 15px;
+    }
+}
+
+
+/* Body and Main Section */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+.header-title {
+    text-align: center;
+    padding: 20px;
+    font-size: 2.5em;
+    color: #fff;
+    background-color: #333;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* First Section */
+#first_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    animation: slideIn 1s ease-out;
+}
+
+.headline {
+    font-size: 2.2em;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: zoomIn 1.5s ease-out;
+}
+
+.shop-image {
+    max-width: 300px;
+    height: auto;
+    animation: bounce 1.5s infinite alternate;
+}
+
+/* Product Section */
+#products_section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 50px 20px;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+.product-card {
+    background-color: #fff;
+    width: 250px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-info h4 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.product-info p {
+    font-size: 1em;
+    color: #007BFF;
+}
+
+.buy-btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+    background-color: #555;
+}
+
+/* About Section */
+#about_section {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+.section-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
