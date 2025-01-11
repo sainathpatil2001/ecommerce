@@ -28,6 +28,19 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+#email settings 
+# settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Or your email provider
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'patilsainath517@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'xknmrtcwdfltfbre'  # Your email password
+DEFAULT_FROM_EMAIL = 'patilsainath517@gmail.com'  # Default sender email
+
+SESSION_COOKIE_AGE = 3600  # Session expires after 5 minutes
+
 # Application definition
 
 INSTALLED_APPS = [
