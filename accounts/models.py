@@ -4,6 +4,10 @@ class UserRegister(models.Model):
     username = models.CharField(max_length=150, unique=True)
     password = models.CharField(max_length=128)
     email = models.EmailField(unique=True)
+    dob = models.DateField()
+    phone = models.CharField(max_length=10)
+    
+
 
     def __str__(self):
         return self.username
