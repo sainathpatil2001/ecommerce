@@ -6,7 +6,7 @@ import string
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.conf import settings
-from .forms import EmailForm, RegisterForm
+from .forms import EmailForm, RegisterForm, LoginForm
 #for otp verification
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
@@ -14,9 +14,11 @@ from django.conf import settings
 from .forms import EmailForm
 import random
 import string
+from .models import RigisterdUser
+from .decorators import login_required_custom
 
 
-
+#when webpage starts 
 def landing_page(request):
 
 
@@ -107,11 +109,49 @@ def send_otp(request):
                 # Save the user to the database (replace with your User model logic)
                 # User.objects.create(username=username, email=email, password=password)
                 print(f"User registered: {username}, {email}, {password}")
+                #adding user details in database 
+                try:
+                    RigisterdUser.objects.create(username=username, email=email, password=password)
+                except exception as e:
+                    print("Error while saving login to database:",e)
                 # Clear session data
                 request.session.flush()
 
                 return JsonResponse({"status": "success", "message": "User registered successfully!"})
+            
             else:
                 return JsonResponse({"status": "error", "message": "Invalid OTP. Please try again."})
     else:
         return render(request, 'accounts/verify_otp.html')
+
+
+#user login view after ragister
+def user_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            # Check if user exists
+            user = RigisterdUser.objects.filter(username=username, password=password).first()
+            if user:
+                # User found
+                request.session['user_id'] = user.id #setting settion
+                return redirect('dashboard')
+            else:
+                form.add_error('User not Existe', 'Invalid Username or password')
+    else:
+        form = LoginForm()
+        return render(request, 'accounts/login.html',context={"form":form})
+    
+@login_required_custom
+def dashboard(request):
+    x=request.session.get('user_id')
+    data={'session_id':x}
+    return render(request,'accounts/dashboard.html',context=data)
+
+#user logout view
+def user_logout(request):
+    request.session.flush()
+    return redirect('landing_page')
+
