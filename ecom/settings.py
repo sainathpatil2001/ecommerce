@@ -44,6 +44,7 @@ SESSION_COOKIE_AGE = 3600  # Session expires after 5 minutes
 # Application definition
 
 INSTALLED_APPS = [
+    
     'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,6 +53,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+import os
+DJANGO_SETTINGS_MODULE = os.getenv('DJANGO_SETTINGS_MODULE', 'ecom.settings')
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
